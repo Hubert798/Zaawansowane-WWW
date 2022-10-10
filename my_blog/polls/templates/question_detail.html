@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+<table>
+    <tr>
+        <th>pk</th>
+        <th>question_text</th>
+        <th>pub_date</th>
+    </tr>
+    <tr>
+        <td>{{question.pk}}</td>
+        <td>{{question}}</td>
+        <td>{{question.pub_date}}</td>
+        <td>{{question.votes}}</td>
+    </tr>   
+</table>
