@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+<table>
+    <tr>
+        <th>pk</th>
+        <th>question_text</th>
+        <th>pub_date</th>
+    </tr>
+    {% for question in question %}
+        <tr>
+            <td>{{question.pk}}</td>
+            <td><a href="{% url 'question_detail' question.id %}">{{question}}</td>
+            <td>{{question.pub_date}}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+
