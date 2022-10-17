@@ -1,17 +1,10 @@
-from django.shortcuts import render, get_object_or_404
 from .models import Question
+from django.shortcuts import render, get_object_or_404
 
-def get_question_list(request):
-    question = Question.objects.all()
-    context = {
-        "question": question
-    }
-    return render(template_name='question_list.html', request=request, context=context)
+def question_list(request):
+   questions = Question.objects.all()
+   return render(request, 'polls/question_list.html', {'questions': questions})
 
-def get_question_detail(request, pk):
-    question = get_object_or_404(Question, pk=pk)
-    context = {
-        "question": question
-    }
-    return render(template_name='question_detail.html', request=request, context=context)
-
+def question_detail(request, question_id):
+   question = get_object_or_404(Question, pk=question_id)
+   return render(request, 'polls/question_detail.html', {'question': question})
